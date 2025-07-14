@@ -48,10 +48,16 @@ RULES = [
 def main():
     st.title("Conversor de Excel para TXT")
 
-    menu = ["Upload de Excel", "Conversão para TXT"]
-    choice = st.sidebar.selectbox("Menu", menu)
+    st.sidebar.title("Menu")
+    if st.sidebar.button("Upload de Excel"):
+        st.session_state.page = "upload"
+    if st.sidebar.button("Conversão para TXT"):
+        st.session_state.page = "convert"
 
-    if choice == "Upload de Excel":
+    if "page" not in st.session_state:
+        st.session_state.page = "upload"
+
+    if st.session_state.page == "upload":
         st.header("Upload de Arquivo Excel")
         uploaded_file = st.file_uploader("Escolha um arquivo Excel", type="xlsx")
 
@@ -68,7 +74,7 @@ def main():
         else:
             st.table(files)
 
-    elif choice == "Conversão para TXT":
+    elif st.session_state.page == "convert":
         st.header("Converter Excel para TXT")
         files = [f for f in os.listdir(UPLOAD_DIR) if f.endswith(".xlsx")]
         if not files:
