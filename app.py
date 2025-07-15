@@ -25,7 +25,7 @@ def format_entrevista_geral(df):
     Formata os dados da aba "Entrevista - Geral".
     """
     content = ""
-    for index, row in df.iloc[7:].iterrows():
+    for index, row in df.iloc[8:].iterrows():
         content += "1 - Entrevista Geral\n"
         content += f"1.1 - Nome do entrevistado: {row.iloc[1]}\n"
         content += f"1.2 - Cargo/Função: {row.iloc[2]}\n"
@@ -42,12 +42,12 @@ def format_pos_entrevista(df):
     Formata os dados da aba "Pós entrevista".
     """
     content = ""
-    for index, row in df.iloc[6:].iterrows():
+    for index, row in df.iloc[8:].iterrows():
         content += "2 - Contexto e escopo do processo\n"
-        content += f"\t2.1 - Objetivo de negócio do processo (qual valor gera?): {row.iloc[0]}\n"
-        content += f"\t2.2 – Fronteiras do processo (onde começa e termina; o que fica fora): {row.iloc[1]}\n"
-        content += f"\t2.3 – Stakeholders envolvidos (internos, externos, sistemas): {row.iloc[2]}\n"
-        content += f"\t2.4 – Encaixe em processos 'pai' - (Indica se este BPMN será chamado como Call Activity ou é o nível mais alto.): {row.iloc[3]}\n"
+        content += f"\t2.1.1 - Objetivo de negócio do processo (qual valor gera?): {row.iloc[0]}\n"
+        content += f"\t2.1.2 – Fronteiras do processo (onde começa e termina; o que fica fora): {row.iloc[1]}\n"
+        content += f"\t2.1.3 – Stakeholders envolvidos (internos, externos, sistemas): {row.iloc[2]}\n"
+        content += f"\t2.1.4 – Encaixe em processos 'pai' - (Indica se este BPMN será chamado como Call Activity ou é o nível mais alto.): {row.iloc[3]}\n"
         content += "\n"
     return content
 
@@ -56,7 +56,7 @@ def format_etapas_processo(df):
     Formata os dados da aba "Etapas do Processo".
     """
     content = ""
-    for index, row in df.iloc[7:].iterrows():
+    for index, row in df.iloc[8:].iterrows():
         content += "3 - Etapas do Processo\n"
         content += f"\t3.1 - Etapa Nº: {row.iloc[1]}\n"
         content += f"\t3.2 - Nome da Etapa: {row.iloc[3]}\n"
@@ -82,12 +82,40 @@ def format_oportunidades_melhorias(df):
     Formata os dados da aba "Oportunidades de Melhorias".
     """
     content = ""
-    for index, row in df.iloc[7:].iterrows():
+    for index, row in df.iloc[8:].iterrows():
         content += "4 - Dores e Melhorias\n"
         content += f"\t4.1 - Etapa relacionada: {row.iloc[1]}\n"
         content += f"\t4.2 - Problema ou dor atual: {row.iloc[2]}\n"
         content += f"\t4.3 - Impacto do problema: {row.iloc[3]}\n"
         content += f"\t4.4 - Sugestão de melhoria: {row.iloc[4]}\n"
+        content += "\n"
+    return content
+
+def format_excecoes(df):
+    """
+    Formata os dados da aba "Exceções".
+    """
+    content = ""
+    for index, row in df.iloc[8:].iterrows():
+        content += "5 - Exceções\n"
+        content += f"\t5.1 - Etapa relacionada: {row.iloc[1]}\n"
+        content += f"\t5.2 - Descricão da exceção: {row.iloc[2]}\n"
+        content += f"\t5.3 - Com é tratada atualmente?: {row.iloc[3]}\n"
+        content += f"\t5.4 - Quem decide?: {row.iloc[4]}\n"
+        content += "\n"
+    return content
+
+def format_anexos(df):
+    """
+    Formata os dados da aba "Anexos".
+    """
+    content = ""
+    for index, row in df.iloc[8:].iterrows():
+        content += "6 - Anexos\n"
+        content += f"\t6.1 - Nome do documento: {row.iloc[1]}\n"
+        content += f"\t6.2 - Tipo (modelo, manual, formulário, etc): {row.iloc[2]}\n"
+        content += f"\t6.3 - Descrição/Finalidade do uso: {row.iloc[3]}\n"
+        content += f"\t6.4 - Local de armazenamento (link/pasta): {row.iloc[4]}\n"
         content += "\n"
     return content
 
@@ -108,6 +136,14 @@ RULES = [
     {
         "sheet_name": "Oportunidades de Melhorias",
         "formatter": format_oportunidades_melhorias,
+    },
+    {
+        "sheet_name": "Exceções",
+        "formatter": format_excecoes,
+    },
+    {
+        "sheet_name": "Anexos",
+        "formatter": format_anexos,
     },
 ]
 
