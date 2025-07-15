@@ -91,7 +91,34 @@ def format_oportunidades_melhorias(df):
         content += "\n"
     return content
 
-# Regras de processamento
+def format_excecoes(df):
+    """
+    Formata os dados da aba "Exceções".
+    """
+    content = ""
+    for index, row in df.iloc[8:].iterrows():
+        content += "5 - Exceções\n"
+        content += f"\t5.1 - Etapa relacionada: {row.iloc[1]}\n"
+        content += f"\t5.2 - Descricão da exceção: {row.iloc[2]}\n"
+        content += f"\t5.3 - Com é tratada atualmente?: {row.iloc[3]}\n"
+        content += f"\t5.4 - Quem decide?: {row.iloc[4]}\n"
+        content += "\n"
+    return content
+
+def format_anexos(df):
+    """
+    Formata os dados da aba "Anexos".
+    """
+    content = ""
+    for index, row in df.iloc[8:].iterrows():
+        content += "6 - Anexos\n"
+        content += f"\t6.1 - Nome do documento: {row.iloc[1]}\n"
+        content += f"\t6.2 - Tipo (modelo, manual, formulário, etc): {row.iloc[2]}\n"
+        content += f"\t6.3 - Descrição/Finalidade do uso: {row.iloc[3]}\n"
+        content += f"\t6.4 - Local de armazenamento (link/pasta): {row.iloc[4]}\n"
+        content += "\n"
+    return content
+
 RULES = [
     {
         "sheet_name": "Entrevista - Geral",
@@ -109,7 +136,16 @@ RULES = [
         "sheet_name": "Oportunidades de Melhorias",
         "formatter": format_oportunidades_melhorias,
     },
+    {
+        "sheet_name": "Exceções",
+        "formatter": format_excecoes,
+    },
+    {
+        "sheet_name": "Anexos",
+        "formatter": format_anexos,
+    },
 ]
+
 
 def main():
     st.title("Conversor de Excel para TXT")
