@@ -1,0 +1,44 @@
+# Ambientes virtuais
+venv/
+.env/
+.matriz/
+*.env/
+
+# Arquivos de cache do Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.pyc
+
+# Arquivos de log
+*.log
+
+# Pastas geradas por IDEs/editors
+.vscode/
+.idea/
+
+# Arquivos de configuração do sistema
+.DS_Store
+Thumbs.db
+
+# Arquivos temporários
+*.tmp
+*.bak
+*.swp
+*.swo
+
+# Streamlit
+.streamlit/secrets.toml
+
+# Arquivos de dados temporários ou de saída
+uploads/
+*.xlsx
+*.csv
+*.txt
+
+# Arquivos de testes
+.coverage
+htmlcov/
+.cache/
+pytest_cache/
