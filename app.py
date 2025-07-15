@@ -44,10 +44,10 @@ def format_pos_entrevista(df):
     content = ""
     for index, row in df.iloc[8:].iterrows():
         content += "2 - Contexto e escopo do processo\n"
-        content += f"\t2.1.1 - Objetivo de negócio do processo (qual valor gera?): {row.iloc[0]}\n"
-        content += f"\t2.1.2 – Fronteiras do processo (onde começa e termina; o que fica fora): {row.iloc[1]}\n"
-        content += f"\t2.1.3 – Stakeholders envolvidos (internos, externos, sistemas): {row.iloc[2]}\n"
-        content += f"\t2.1.4 – Encaixe em processos 'pai' - (Indica se este BPMN será chamado como Call Activity ou é o nível mais alto.): {row.iloc[3]}\n"
+        content += f"\t2.1 - Objetivo de negócio do processo (qual valor gera?): {row.iloc[0]}\n"
+        content += f"\t2.2 – Fronteiras do processo (onde começa e termina; o que fica fora): {row.iloc[1]}\n"
+        content += f"\t2.3 – Stakeholders envolvidos (internos, externos, sistemas): {row.iloc[2]}\n"
+        content += f"\t2.4 – Encaixe em processos 'pai' - (Indica se este BPMN será chamado como Call Activity ou é o nível mais alto.): {row.iloc[3]}\n"
         content += "\n"
     return content
 
