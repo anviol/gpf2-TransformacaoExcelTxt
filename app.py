@@ -37,29 +37,43 @@ def format_entrevista_geral(df):
         content += "\n"
     return content
 
+def format_pos_entrevista(df):
+    """
+    Formata os dados da aba "Pós entrevista".
+    """
+    content = ""
+    for index, row in df.iloc[8:].iterrows():
+        content += "2 - Contexto e escopo do processo\n"
+        content += f"\t2.1.1 - Objetivo de negócio do processo (qual valor gera?): {row.iloc[0]}\n"
+        content += f"\t2.1.2 – Fronteiras do processo (onde começa e termina; o que fica fora): {row.iloc[1]}\n"
+        content += f"\t2.1.3 – Stakeholders envolvidos (internos, externos, sistemas): {row.iloc[2]}\n"
+        content += f"\t2.1.4 – Encaixe em processos 'pai' - (Indica se este BPMN será chamado como Call Activity ou é o nível mais alto.): {row.iloc[3]}\n"
+        content += "\n"
+    return content
+
 def format_etapas_processo(df):
     """
     Formata os dados da aba "Etapas do Processo".
     """
     content = ""
     for index, row in df.iloc[8:].iterrows():
-        content += "2 - Etapas do Processo\n"
-        content += f"\t2.1 - Etapa Nº: {row.iloc[1]}\n"
-        content += f"\t2.2 - Nome da Etapa: {row.iloc[3]}\n"
-        content += f"\t2.3 - Atividade Realizada: {row.iloc[4]}\n"
-        content += f"\t2.4 - Responsavel (Pessoa/papel): {row.iloc[5]}\n"
-        content += f"\t2.5 - Porque realizar essa atividade?: {row.iloc[6]}\n"
-        content += f"\t2.6 - Sistema utilizado: {row.iloc[7]}\n"
-        content += f"\t2.7 - Quando é executada?: {row.iloc[9]}\n"
-        content += f"\t2.8 - Entrada (Documento/dados) - (Eventos disparadores típicos, documento recebido, agendamento, erro, SLA, etc.): {row.iloc[10]}\n"
-        content += f"\t2.9 - Saída (Documento/dados): {row.iloc[11]}\n"
-        content += f"\t2.10 - Regras de negócio aplicadas: {row.iloc[12]}\n"
-        content += f"\t\t2.10.1 - Decisão automática ou humana?: {row.iloc[19]}\n"
-        content += f"\t\t2.10.2 - Critérios da decisão: {row.iloc[20]}\n"
-        content += f"\t\t2.10.3 - Frequência de exceções: {row.iloc[21]}\n"
-        content += f"\t\t2.10.4 - Tolerância/SLA: {row.iloc[22]}\n"
-        content += f"\t2.11 - Duração estimada: {row.iloc[14]}\n"
-        content += f"\t2.12 - Oservações: {row.iloc[15]}\n"
+        content += "3 - Etapas do Processo\n"
+        content += f"\t3.1 - Etapa Nº: {row.iloc[1]}\n"
+        content += f"\t3.2 - Nome da Etapa: {row.iloc[3]}\n"
+        content += f"\t3.3 - Atividade Realizada: {row.iloc[4]}\n"
+        content += f"\t3.4 - Responsavel (Pessoa/papel): {row.iloc[5]}\n"
+        content += f"\t3.5 - Porque realizar essa atividade?: {row.iloc[6]}\n"
+        content += f"\t3.6 - Sistema utilizado: {row.iloc[7]}\n"
+        content += f"\t3.7 - Quando é executada?: {row.iloc[9]}\n"
+        content += f"\t3.8 - Entrada (Documento/dados) - (Eventos disparadores típicos, documento recebido, agendamento, erro, SLA, etc.): {row.iloc[10]}\n"
+        content += f"\t3.9 - Saída (Documento/dados): {row.iloc[11]}\n"
+        content += f"\t3.10 - Regras de negócio aplicadas: {row.iloc[12]}\n"
+        content += f"\t\t3.10.1 - Decisão automática ou humana?: {row.iloc[19]}\n"
+        content += f"\t\t3.10.2 - Critérios da decisão: {row.iloc[20]}\n"
+        content += f"\t\t3.10.3 - Frequência de exceções: {row.iloc[21]}\n"
+        content += f"\t\t3.10.4 - Tolerância/SLA: {row.iloc[22]}\n"
+        content += f"\t3.11 - Duração estimada: {row.iloc[14]}\n"
+        content += f"\t3.12 - Oservações: {row.iloc[15]}\n"
         content += "\n"
     return content
 
@@ -68,6 +82,10 @@ RULES = [
     {
         "sheet_name": "Entrevista - Geral",
         "formatter": format_entrevista_geral,
+    },
+    {
+        "sheet_name": "Pós entrevista",
+        "formatter": format_pos_entrevista,
     },
     {
         "sheet_name": "Etapas do Processo",
