@@ -37,11 +37,41 @@ def format_entrevista_geral(df):
         content += "\n"
     return content
 
+def format_etapas_processo(df):
+    """
+    Formata os dados da aba "Etapas do Processo".
+    """
+    content = ""
+    for index, row in df.iloc[8:].iterrows():
+        content += "2 - Etapas do Processo\n"
+        content += f"\t2.1 - Etapa Nº: {row.iloc[1]}\n"
+        content += f"\t2.2 - Nome da Etapa: {row.iloc[3]}\n"
+        content += f"\t2.3 - Atividade Realizada: {row.iloc[4]}\n"
+        content += f"\t2.4 - Responsavel (Pessoa/papel): {row.iloc[5]}\n"
+        content += f"\t2.5 - Porque realizar essa atividade?: {row.iloc[6]}\n"
+        content += f"\t2.6 - Sistema utilizado: {row.iloc[7]}\n"
+        content += f"\t2.7 - Quando é executada?: {row.iloc[9]}\n"
+        content += f"\t2.8 - Entrada (Documento/dados) - (Eventos disparadores típicos, documento recebido, agendamento, erro, SLA, etc.): {row.iloc[10]}\n"
+        content += f"\t2.9 - Saída (Documento/dados): {row.iloc[11]}\n"
+        content += f"\t2.10 - Regras de negócio aplicadas: {row.iloc[12]}\n"
+        content += f"\t\t2.10.1 - Decisão automática ou humana?: {row.iloc[19]}\n"
+        content += f"\t\t2.10.2 - Critérios da decisão: {row.iloc[20]}\n"
+        content += f"\t\t2.10.3 - Frequência de exceções: {row.iloc[21]}\n"
+        content += f"\t\t2.10.4 - Tolerância/SLA: {row.iloc[22]}\n"
+        content += f"\t2.11 - Duração estimada: {row.iloc[14]}\n"
+        content += f"\t2.12 - Oservações: {row.iloc[15]}\n"
+        content += "\n"
+    return content
+
 # Regras de processamento
 RULES = [
     {
         "sheet_name": "Entrevista - Geral",
         "formatter": format_entrevista_geral,
+    },
+    {
+        "sheet_name": "Etapas do Processo",
+        "formatter": format_etapas_processo,
     },
 ]
 
