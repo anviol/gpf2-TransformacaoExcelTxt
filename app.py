@@ -25,7 +25,7 @@ def format_entrevista_geral(df):
     Formata os dados da aba "Entrevista - Geral".
     """
     content = ""
-    for index, row in df.iloc[8:].iterrows():
+    for index, row in df.iloc[7:].iterrows():
         content += "1 - Entrevista Geral\n"
         content += f"1.1 - Nome do entrevistado: {row.iloc[1]}\n"
         content += f"1.2 - Cargo/Função: {row.iloc[2]}\n"
@@ -42,7 +42,7 @@ def format_pos_entrevista(df):
     Formata os dados da aba "Pós entrevista".
     """
     content = ""
-    for index, row in df.iloc[8:].iterrows():
+    for index, row in df.iloc[6:].iterrows():
         content += "2 - Contexto e escopo do processo\n"
         content += f"\t2.1 - Objetivo de negócio do processo (qual valor gera?): {row.iloc[0]}\n"
         content += f"\t2.2 – Fronteiras do processo (onde começa e termina; o que fica fora): {row.iloc[1]}\n"
@@ -56,7 +56,7 @@ def format_etapas_processo(df):
     Formata os dados da aba "Etapas do Processo".
     """
     content = ""
-    for index, row in df.iloc[8:].iterrows():
+    for index, row in df.iloc[7:].iterrows():
         content += "3 - Etapas do Processo\n"
         content += f"\t3.1 - Etapa Nº: {row.iloc[1]}\n"
         content += f"\t3.2 - Nome da Etapa: {row.iloc[3]}\n"
@@ -82,7 +82,7 @@ def format_oportunidades_melhorias(df):
     Formata os dados da aba "Oportunidades de Melhorias".
     """
     content = ""
-    for index, row in df.iloc[8:].iterrows():
+    for index, row in df.iloc[7:].iterrows():
         content += "4 - Dores e Melhorias\n"
         content += f"\t4.1 - Etapa relacionada: {row.iloc[1]}\n"
         content += f"\t4.2 - Problema ou dor atual: {row.iloc[2]}\n"
